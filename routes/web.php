@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\Storage;
 */
 
 Route::get('/', ['uses' => 'HomeController@index',  'as' => 'index']);
+Route::get('/home', ['uses' => 'HomeController@index',  'as' => 'index']);
 Route::get('/login', ['uses' => 'Auth\LoginController@login',  'as' => 'login']);
+Route::get('/settings', ['uses' => 'UserController@settings',  'as' => 'settings']);
 Route::post('/login/verify', ['uses' => 'Auth\LoginController@verify_login',  'as' => 'login.verify']);
 
 

@@ -48,7 +48,7 @@ class LoginController extends Controller
     }
 
     public function login(){
-        return view ('auth.login');
+        return view ('auth.login.login');
     }
 
     public function verify_login(Request $request)
@@ -64,7 +64,7 @@ class LoginController extends Controller
             } else{
                 if(password_verify($request->password, $user->password)){
                     Auth::login($user);
-                        return redirect()->route('login.index');
+                        return redirect()->route('index');
                 } else{
                     $_SESSION['login_invalido']['mensagem']   = "Invalid email or password";
                     return redirect()->route('login');
