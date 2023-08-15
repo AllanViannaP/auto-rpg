@@ -39,13 +39,14 @@ class RegisterController extends Controller
                 || $request->password_confirmation == null || $request->name == null){
                     $_SESSION['login_invalido']['mensagem']   = "Fill in all fields";
                     return redirect()->route('register');
-        }else{
-        DB::table('users')
-        ->insert([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password)
-        ]);
+        } else{
+            DB::table('users')
+            ->insert([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password)
+            ]);
+            return view('auth.verify');
         }
     }
 
