@@ -1,7 +1,7 @@
 @extends('template.master')
 
 @section('title')
-<title>TITULO</title>
+<title>Home</title>
 @endsection
 
 @section('content')

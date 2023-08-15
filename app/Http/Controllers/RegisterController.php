@@ -1,10 +1,11 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Entities\User;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -12,10 +13,16 @@ use Illuminate\Support\Facades\Validator;
 class RegisterController extends Controller
 {
     public function register(){
-            return view('register');
-        
-    }
+        return view('register');}
 
+    public function registrate(Request $request){
+        DB::table('users')
+        ->insert([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password)
+        ]);
+    }
     protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
