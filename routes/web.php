@@ -20,8 +20,8 @@ Route::get('/home', ['uses' => 'HomeController@index',  'as' => 'index']);
 Route::get('/login', ['uses' => 'Auth\LoginController@login',  'as' => 'login']);
 Route::get('/settings', ['uses' => 'UserController@settings',  'as' => 'settings']);
 Route::post('/login/verify', ['uses' => 'Auth\LoginController@verify_login',  'as' => 'login.verify']);
-
-
+Route::get('/register', ['uses' => 'RegisterController@register', 'as' => 'register']);
+Route::post('/register', ['uses' => 'RegisterController@register', 'as' => 'register']);
 Route::get('/logout', function () {
     Auth::logout();
     return redirect()->route('index');

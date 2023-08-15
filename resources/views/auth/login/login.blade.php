@@ -43,9 +43,15 @@
                                             </small>
                                         </div>
                                         <div class="mt-3">
-                                            <button type="submit" class="btn btn-lg btn-primary">Login</button>
+                                            <button type="submit" class="btn btn-lg btn-primary rounded-pill">Login</button>
                                         </div>
                                     </form>
+                                    <br>
+                                    <div class="mt-3">
+                                        <span>Don't have an account?<a class="nav-link" href="{{route('register')}}">
+                                            <font color="blue">Sign In</font></a> 
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
