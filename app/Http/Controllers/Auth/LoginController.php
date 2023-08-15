@@ -58,7 +58,6 @@ class LoginController extends Controller
         try
         {
             $user = User::where('email',$request->email)->first();
-            dd($user);
             if($user == null){
                 $_SESSION['login_invalido']['mensagem']   = "Invalid email or password";
                 return redirect()->route('login');
