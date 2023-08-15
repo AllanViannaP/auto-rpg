@@ -12,19 +12,7 @@ use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
-    public function register(){
-        return view('register');}
-
-    public function registrate(Request $request){
-        DB::table('users')
-        ->insert([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password)
-        ]);
-    }
     protected $redirectTo = RouteServiceProvider::HOME;
-
     /**
      * Create a new controller instance.
      *
@@ -35,32 +23,30 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+    public function register(){
+        return view('register');}
+
+    protected function registrate(Request $request){
+        $user = User::where('email',$request->email)->first();
+        session_start();
+        if(isset($user)){
+            $_SESSION['login_invalido']['mensagem']   = "This email is already being used";
+            return redirect()->route('register');
+        } else if($request->password != $request->password_confirmation){
+            $_SESSION['login_invalido']['mensagem']   = "Passwords must be the same";
+            return redirect()->route('register');
+        } else if( $request->email == null ||$request->password == null 
+                || $request->password_confirmation == null || $request->name == null){
+                    $_SESSION['login_invalido']['mensagem']   = "Fill in all fields";
+                    return redirect()->route('register');
+        }else{
+        DB::table('users')
+        ->insert([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password)
         ]);
+        }
     }
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\Entities\User;
-     */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
-    }
+
 }
