@@ -70,7 +70,7 @@
                     <div class="modal-body border-0 p-4">
                             <font size="5">
                                 <div class="form-floating mb-3">
-                                    <a class="nav-link rounded-pill px-3 mb-2 mb-lg-0" href="{{route('login')}}">
+                                    <a class="nav-link rounded-pill px-3 mb-2 mb-lg-0" href="{{route('mygames')}}">
                                         <i class="bi bi-dice-5"></i> &nbsp; My games</a>
                                 </div>
                                 
