@@ -18,6 +18,7 @@ class rooms extends Migration
             $table->increments('id');
             $table->string('room_name', 80);
             $table->string('bg',20);
+            $table->string('code',80);
             $table->unsignedInteger('id_gm');
             $table->foreign('id_gm')->references('id')->on('users');
         });
