@@ -15,6 +15,7 @@ class Participate extends Migration
     {
         Schema::create('participate', function (Blueprint $table) {
             $table->increments('id');
+            $table->boolean('approved');
             $table->unsignedInteger('id_room');
             $table->foreign('id_room')->references('id')->on('rooms');
             $table->unsignedInteger('id_player');
