@@ -19,6 +19,7 @@ class Participate extends Migration
             $table->foreign('id_room')->references('id')->on('rooms');
             $table->unsignedInteger('id_player');
             $table->foreign('id_player')->references('id')->on('users');
+            $table->string('permission',20);
         });
     }
 
