@@ -10,14 +10,16 @@
                     <div class="card-header"> <h4>My Profile </h4>
                     </div>
                     <div class="card-body">
-                        <div id="profileinfo">
+                        <div id="profileinfo" hidden>
                             <p>Username: {{$user->name}}</p>
                             <p>Title: {{$user->titlepre}} {{$user->title}}</p>
+                            <button onclick> 
                         </div>
-                        <div id="profileedit">
-                            <form method="POST">
-                                
+                        <div id="profileedit" hidden>
+                            <form method="POST">                    
                             </form>
+                        </div>
+                    
                             
                     </div> 
                 </div>  <br>
