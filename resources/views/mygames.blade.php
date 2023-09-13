@@ -15,74 +15,89 @@
         }
         ?>
         {{-- PLAYER ROOMS --}}
+
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <h4 class="">Player Rooms</h4>
 
-                <div class="card-columns" style="width: 13rem;">
-                    @if(isset($player_rooms))
-                        @foreach($player_rooms as $player_holder)
-                        <div class="card {{$player_holder->bg}}">
-                            <?php
-                            $text = $text="link-light";
-                            if($player_holder->bg == "bg-light"){ $text="link-dark";}
-                            ?>
-                            <div class="card-body text-center">
-                                <br>
-                                <a class="card-text text-center {{$text}}" href="/room/{{$player_holder->id}}">{{$player_holder->room_name}}</a>
-                                <br><br>
-                            </div>  
-                        </div>
-                        @endforeach
-                    @endif
-                    <div class="col-md-4">
-                        <div class="card">
-                            <font size="10">
-                                <center>
-                                <a class="bi bi-plus-square" data-bs-toggle="modal" data-bs-target="#joinModal"></a>
-                                </center>
-                            </font>
+                <div class="container-fluid mt-4">
+                    <!-- Content Row -->
+                    <div class="row">
+                            @if(isset($player_rooms))
+                                @foreach($player_rooms as $player_holder)
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <a class="card border-left-primary shadow h-100 py-2 {{$player_holder->bg}}" href="/room/{{$player_holder->id}}" style="text-decoration:none">
+                                        <div class="card-body {{$player_holder->bg}}">
+                                            <?php
+                                                $text = $text="link-light";
+                                                if($player_holder->bg == "bg-light"){ $text="link-dark";}
+                                            ?>
+                                            <div class="row no-gutters align-items-center" style="text-align: center;">
+                                                <div class="col mr-2">
+                                                    <div class="h4 text-xs font-weight-bold text-uppercase mb-1  {{$text}}">
+                                                        {{$player_holder->room_name}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                @endforeach
+                            @endif
+
+                        <div class="col-xl-2 col-md-6 mb-4">
+                            <div class="card card border-left-primary shadow h-100 py-2" style="justify-content:center;  text-align: center;">
+                                <font size="10">
+                                    <a class="bi bi-plus-square " data-bs-toggle="modal" data-bs-target="#joinModal"></a>
+                                </font>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
+
         {{-- GM ROOMS --}}
         <div class="row justify-content-center">
             <div class="col-md-10">
                     <h4>Play as Game Master</h4>
-                <div class="card-columns" style="width: 13rem;">
+
+                <div class="container-fluid mt-4">
+                    <!-- Content Row -->
+                    <div class="row">
                     @if(isset($gm_rooms))
                         @foreach($gm_rooms as $gm_holder)
-                            <div class="card {{$gm_holder->bg}}">
-                                <?php
-                                $text = $text="link-light";
-                                if($gm_holder->bg == "bg-light"){ $text="link-dark";}
-                                ?>
-                                <div class="card-body text-center">
-                                    <br>
-                                    <a class="card-text text-center {{$text}}" href="/room/{{$gm_holder->id}}">{{$gm_holder->room_name}}</a>
-                                    <br><br>
-                                </div>  
-                            </div>
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <a class="card border-left-primary shadow h-100 py-2 {{$gm_holder->bg}}" href="/room/{{$gm_holder->id}}" style="text-decoration:none">
+                                <div class="card-body {{$gm_holder->bg}}">
+                                    <?php
+                                        $text = $text="link-light";
+                                        if($gm_holder->bg == "bg-light"){ $text="link-dark";}
+                                    ?>
+                                    <div class="row no-gutters align-items-center" style="text-align: center;">
+                                        <div class="col mr-2">
+                                            <div class="h4 text-xs font-weight-bold text-uppercase mb-1 {{$text}}">
+                                                {{$gm_holder->room_name}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
                         @endforeach
                     @endif
-                    <div class="col-md-4">
-                        <div class="card">
-                            <font size="10">
-                                <center>
-                                    <a class="bi bi-plus-square" data-bs-toggle="modal" data-bs-target="#createModal"></a>
-                                </center>
-                            </font>
-                        </div>
-                    </div>  
-                </div>   
+
+                        <div class="col-xl-2 col-md-6 mb-4 ">
+                            <div class="card card border-left-primary shadow h-100 py-2 align-center" style="justify-content:center;  text-align: center;">
+                                <font size="10">
+                                        <a class="bi bi-plus-square" data-bs-toggle="modal" data-bs-target="#createModal"></a>
+                                </font>
+                            </div>
+                        </div>  
+
+                    </div>   
+                </div>
             </div>
         </div>
-
-    </div>
-
 
     <!-- Create Modal-->
     <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">

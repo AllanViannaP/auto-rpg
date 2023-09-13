@@ -38,8 +38,9 @@ class RoomController extends Controller
     }
 
     public function code(Request $request){
-        $code = substr($request->name,0,3);
-        $holder = substr($request->name,-3);
+        $name= $this->Clean_String( $request->name );
+        $code = substr($name,0,3);
+        $holder = substr($name,-3);
         for($i=0;$i<5;$i++){
             $random[$i] = rand(1,20);
             switch($random[$i]){
@@ -106,7 +107,18 @@ class RoomController extends Controller
             $_SESSION['room']['mensagem']   = "This room doesn't exist";
                 return redirect()->route('mygames');
         }
+    }
 
-
+    function Clean_String($str)
+    {
+        $str = preg_replace('/[áàãâä]/ui', 'a', $str);
+        $str = preg_replace('/[éèêë]/ui', 'e', $str);
+        $str = preg_replace('/[íìîï]/ui', 'i', $str);
+        $str = preg_replace('/[óòõôö]/ui', 'o', $str);
+        $str = preg_replace('/[úùûü]/ui', 'u', $str);
+        $str = preg_replace('/[ç]/ui', 'c', $str);
+        $str = preg_replace('/_+/', '', $str);
+        $str = preg_replace('/ /', '', $str);
+        return $str;
     }
 }
