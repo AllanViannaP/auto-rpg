@@ -121,4 +121,38 @@ class RoomController extends Controller
         $str = preg_replace('/ /', '', $str);
         return $str;
     }
+
+
+    function rooms($code){
+        $room = DB::table('rooms')
+        ->where('code','=',$code)
+        ->first();
+
+        if(!is_null($room)){
+            $permission = DB::table('participate')
+            ->where('id_room','=',$room->id)
+            ->get();
+
+            $check = false;
+            foreach($permission as $holder){
+                if($holder->id_player == Auth::id()){
+                    $check = true;
+                    break;
+                }
+            }
+
+            if($room->id_gm == Auth::id()){
+                dd("gm");
+            }
+            else if($check){
+                dd("player");
+            }
+            else{
+                session_start();
+                $_SESSION['room']['mensagem']   = "You are not in this room!";
+                    return redirect()->route('mygames');
+            }
+        }
+        
+    }
 }

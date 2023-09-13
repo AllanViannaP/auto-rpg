@@ -26,7 +26,7 @@
                             @if(isset($player_rooms))
                                 @foreach($player_rooms as $player_holder)
                                 <div class="col-xl-3 col-md-6 mb-4">
-                                    <a class="card border-left-primary shadow h-100 py-2 {{$player_holder->bg}}" href="/room/{{$player_holder->id}}" style="text-decoration:none">
+                                    <a class="card border-left-primary shadow h-100 py-2 {{$player_holder->bg}}" href="/room/{{$player_holder->code}}" style="text-decoration:none">
                                         <div class="card-body {{$player_holder->bg}}">
                                             <?php
                                                 $text = $text="link-light";
@@ -68,7 +68,7 @@
                     @if(isset($gm_rooms))
                         @foreach($gm_rooms as $gm_holder)
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <a class="card border-left-primary shadow h-100 py-2 {{$gm_holder->bg}}" href="/room/{{$gm_holder->id}}" style="text-decoration:none">
+                            <a class="card border-left-primary shadow h-100 py-2 {{$gm_holder->bg}}" href="/room/{{$gm_holder->code}}" style="text-decoration:none">
                                 <div class="card-body {{$gm_holder->bg}}">
                                     <?php
                                         $text = $text="link-light";
