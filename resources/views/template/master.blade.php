@@ -30,7 +30,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
                         <li class="nav-item"><a class="nav-link me-lg-3" href="#features">Features</a></li>
-                        <li class="nav-item"><a class="nav-link me-lg-3" href="#download">Download</a></li>
+                        <li class="nav-item"><a class="nav-link me-lg-3" target="_blank" href="https://github.com/AllanViannaP/auto-rpg">Git</a></li>
                         @auth
                         <i class="bi bi-person-fill mt-2"></i>
                         <li class="nav-item">
@@ -70,7 +70,7 @@
                     <div class="modal-body border-0 p-4">
                             <font size="5">
                                 <div class="form-floating mb-3">
-                                    <a class="nav-link rounded-pill px-3 mb-2 mb-lg-0" href="{{route('login')}}">
+                                    <a class="nav-link rounded-pill px-3 mb-2 mb-lg-0" href="{{route('mygames')}}">
                                         <i class="bi bi-dice-5"></i> &nbsp; My games</a>
                                 </div>
                                 
