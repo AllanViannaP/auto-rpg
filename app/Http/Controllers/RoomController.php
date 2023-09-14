@@ -142,10 +142,18 @@ class RoomController extends Controller
             }
 
             if($room->id_gm == Auth::id()){
-                dd("gm");
+                $dm = true;
+                return view('room',[
+                    'room' =>  $room,
+                    'dm'   => $dm,
+                ]);
             }
             else if($check){
-                dd("player");
+                $dm = false;
+                return view('room',[
+                    'room' =>  $room,
+                    'dm'   => $dm,
+                ]);
             }
             else{
                 session_start();
