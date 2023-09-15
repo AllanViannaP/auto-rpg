@@ -16,6 +16,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <script src="js/jquery-3.2.1.min.js"></script>
     </head>
 
     <body id="page-top">
@@ -75,7 +76,7 @@
                                 </div>
                                 
                                 <div class="form-floating mb-3">
-                                    <a class="nav-link rounded-pill px-3 mb-2 mb-lg-0" href="{{route('settings')}}">
+                                    <a class="nav-link rounded-pill px-3 mb-2 mb-lg-0" href="{{route('usersettings')}}">
                                         <i class="bi bi-gear-fill"></i> &nbsp; Settings</a>
                                 </div>
 
