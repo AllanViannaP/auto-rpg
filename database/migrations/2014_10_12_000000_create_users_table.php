@@ -20,8 +20,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('titlepre')->default('Newbie');
-            $table->string('title')->default('Player');
+            $table->string('titlepre')->default('Beginner');
+            $table->string('title')->default('Adventurer');
             $table->rememberToken();
             $table->timestamps();
         });
