@@ -4,6 +4,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 
+Route::get('/logout', function () {
+    Auth::logout();
+    return redirect()->route('index');
+})->name('logout');
+
 
 Route::get('/', ['uses' => 'HomeController@index',  'as' => 'index']);
 Route::get('/home', ['uses' => 'HomeController@index',  'as' => 'index']);
@@ -20,10 +25,6 @@ Route::post('/publish_room', ['uses' => 'RoomController@publish_room', 'as' => '
 Route::post('/join_room', ['uses' => 'RoomController@join_room',  'as' => 'join_room']);
 
 
-Route::post('/verification.resend', ['uses' => 'Auth\RegisterCOntroller@verification.resend', 'as' => 'verification.resend']);
-Route::get('/logout', function () {
-    Auth::logout();
-    return redirect()->route('index');
-})->name('logout');
+Route::post('/verification.resend', ['uses' => 'Auth\RegisterController@verification.resend', 'as' => 'verification.resend']);
 
 
