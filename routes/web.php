@@ -30,6 +30,7 @@ Route::post('/publish_room', ['uses' => 'RoomController@publish_room', 'as' => '
 Route::post('/join_room', ['uses' => 'RoomController@join_room',  'as' => 'join_room']);
 
 
+Route::post('/verification.resend', ['uses' => 'Auth\RegisterCOntroller@verification.resend', 'as' => 'verification.resend']);
 Route::get('/logout', function () {
     Auth::logout();
     return redirect()->route('index');

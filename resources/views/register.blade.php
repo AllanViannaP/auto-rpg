@@ -9,6 +9,13 @@
                     <div class="card-header">{{ __('Register') }}</div>
 
                     <div class="card-body">
+                        <?php
+                            session_start();
+                            if (isset($_SESSION['login_invalido'])) {
+                                echo '<div class="alert alert-danger" style="margin-top : 20px;" role="alert">' . $_SESSION['login_invalido']['mensagem'] . '</div>';
+                                unset($_SESSION['login_invalido']);
+                            }
+                            ?>
                         <form method="POST" action='{{ route("registrate") }}'>
                             @csrf
 

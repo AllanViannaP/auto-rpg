@@ -34,7 +34,7 @@
                         @auth
                         <i class="bi bi-person-fill mt-2"></i>
                         <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="modal" data-bs-target="#feedbackModal">My account</a>
+                            <a class="nav-link" data-bs-toggle="modal" data-bs-target="#feedbackModal"  style="cursor: pointer">My account</a>
                         </li>
 
                         @else
