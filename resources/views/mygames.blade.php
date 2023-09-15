@@ -46,9 +46,7 @@
 
                         <div class="col-xl-2 col-md-6 mb-4">
                             <div class="card card border-left-primary shadow h-100 py-2" style="justify-content:center;  text-align: center;">
-                                <font size="10">
-                                    <a class="bi bi-plus-square " data-bs-toggle="modal" data-bs-target="#joinModal"></a>
-                                </font>
+                                    <a class="bi bi-plus-square size_10" data-bs-toggle="modal" data-bs-target="#joinModal"></a>
                             </div>
                         </div>
                     </div>
@@ -88,9 +86,7 @@
 
                         <div class="col-xl-2 col-md-6 mb-4 ">
                             <div class="card card border-left-primary shadow h-100 py-2 align-center" style="justify-content:center;  text-align: center;">
-                                <font size="10">
-                                        <a class="bi bi-plus-square" data-bs-toggle="modal" data-bs-target="#createModal"></a>
-                                </font>
+                                        <a class="bi bi-plus-square size_10" data-bs-toggle="modal" data-bs-target="#createModal"></a>
                             </div>
                         </div>  
 
