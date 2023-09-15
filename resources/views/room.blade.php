@@ -38,66 +38,284 @@
             
     <script>
         $('#chat').on('click',function(){
+            $('#chat_div').remove();
+            $('#sheet_div').remove();
+            $('#file_div').remove();
+            $('#config_div').remove();
+
             $('#selection_menu').append(
-                '<ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">'+
-        '<li class="nav-item">'+
-            '<a href="#" class="nav-link align-middle px-0">'
-                '<i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Holder</span>'+
-            '</a>'+
-        '</li>'+
-        '<li>'+
-            '<a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">'+
-                '<i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Holder dropdown</span> </a>'+
-            '<ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">'+
-                '<li class="w-100">'+
-                    '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1 </a>'+
+            '<div id="chat_div" name="chat_div">'+
+            '<ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">'+
+                '<li class="nav-item">'+
+                    '<a href="#" class="nav-link align-middle px-0">'+
+                        '<i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Holder</span>'+
+                    '</a>'+
                 '</li>'+
                 '<li>'+
-                    '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2 </a>'+
+                    '<a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">'+
+                        '<i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Holder dropdown</span> </a>'+
+                    '<ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">'+
+                        '<li class="w-100">'+
+                            '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1 </a>'+
+                        '</li>'+
+                        '<li>'+
+                            '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2 </a>'+
+                        '</li>'+
+                    '</ul>'+
+                '</li>'+
+                '<li>'+
+                    '<a href="#" class="nav-link px-0 align-middle">'+
+                        ' <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Holder</span></a>'+
+                '</li>'+
+                '<li>'+
+                    '<a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">'+
+                        '<i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Holder Dropdown</span></a>'+
+                    '<ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">'+
+                        '<li class="w-100">'+
+                            '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1</a>'+
+                        '</li>'+
+                        '<li>'+
+                            '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2</a>'+
+                        '</li>'+
+                    '</ul>'+
+                '</li>'+
+                '<li>'+
+                    '<a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">'+
+                        '<i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Holder Dropdown</span> </a>'+
+                        '<ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">'+
+                        '<li class="w-100">'+
+                            '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>'+
+                        '</li>'+
+                        '<li>'+
+                            '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>'+
+                        '</li>'+
+                        '<li>'+
+                            '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>'+
+                        '</li>'+
+                        '<li>'+
+                            '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>'+
+                        '</li>'+
+                    '</ul>'+
+                '</li>'+
+                '<li>'+
+                    '<a href="#" class="nav-link px-0 align-middle">'+
+                        '<i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Holder</span> </a>'+
                 '</li>'+
             '</ul>'+
-        '</li>'+
-        '<li>'+
-            '<a href="#" class="nav-link px-0 align-middle">'+
-                ' <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Holder</span></a>'+
-        '</li>'+
-        '<li>'+
-            '<a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">'+
-                '<i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Holder Dropdown</span></a>'+
-            '<ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">'+
-                '<li class="w-100">'+
-                    '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1</a>'+
-                '</li>'+
-                '<li>'+
-                    '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2</a>'+
-                '</li>'+
-            '</ul>'+
-        '</li>'+
-        '<li>'+
-            '<a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">'+
-                '<i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Holder Dropdown</span> </a>'+
-                '<ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">'+
-                '<li class="w-100">'+
-                    '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>'+
-                '</li>'+
-                '<li>'+
-                    '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>'+
-                '</li>'+
-                '<li>'+
-                    '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>'+
-                '</li>'+
-                '<li>'+
-                    '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>'+
-                '</li>'+
-            '</ul>'+
-        '</li>'+
-        '<li>'+
-            '<a href="#" class="nav-link px-0 align-middle">'+
-                '<i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Holder</span> </a>'+
-        '</li>'+
-    '</ul>'+
+            '</div>'
         );
         });
+
+        $('#sheet').on('click',function(){
+            $('#chat_div').remove();
+            $('#sheet_div').remove();
+            $('#file_div').remove();
+            $('#config_div').remove();
+
+            $('#selection_menu').append(
+
+            '<div id="sheet_div" name="sheet_div">'+
+                '<ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">'+
+                    '<li class="nav-item">'+
+                        '<a href="#" class="nav-link align-middle px-0">'+
+                            '<i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Holder</span>'+
+                        '</a>'+
+                    '</li>'+
+                    '<li>'+
+                        '<a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">'+
+                            '<i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">AAAAAAAAAAAAAAn</span> </a>'+
+                        '<ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">'+
+                            '<li class="w-100">'+
+                                '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1 </a>'+
+                            '</li>'+
+                            '<li>'+
+                                '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2 </a>'+
+                            '</li>'+
+                        '</ul>'+
+                    '</li>'+
+                    '<li>'+
+                        '<a href="#" class="nav-link px-0 align-middle">'+
+                            ' <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Holder</span></a>'+
+                    '</li>'+
+                    '<li>'+
+                        '<a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">'+
+                            '<i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Holder Dropdown</span></a>'+
+                        '<ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">'+
+                            '<li class="w-100">'+
+                                '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1</a>'+
+                            '</li>'+
+                            '<li>'+
+                                '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2</a>'+
+                            '</li>'+
+                        '</ul>'+
+                    '</li>'+
+                    '<li>'+
+                        '<a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">'+
+                            '<i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Holder Dropdown</span> </a>'+
+                            '<ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">'+
+                            '<li class="w-100">'+
+                                '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>'+
+                            '</li>'+
+                            '<li>'+
+                                '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>'+
+                            '</li>'+
+                            '<li>'+
+                                '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>'+
+                            '</li>'+
+                            '<li>'+
+                                '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>'+
+                            '</li>'+
+                        '</ul>'+
+                    '</li>'+
+                    '<li>'+
+                        '<a href="#" class="nav-link px-0 align-middle">'+
+                            '<i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Holder</span> </a>'+
+                    '</li>'+
+                '</ul>'+
+            '</div>'
+            );
+        });
+
+        $('#file').on('click',function(){
+            $('#chat_div').remove();
+            $('#sheet_div').remove();
+            $('#file_div').remove();
+            $('#config_div').remove();
+
+            $('#selection_menu').append(
+
+            '<div id="sheet_div" name="sheet_div">'+
+                '<ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">'+
+                    '<li class="nav-item">'+
+                        '<a href="#" class="nav-link align-middle px-0">'+
+                            '<i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Holder</span>'+
+                        '</a>'+
+                    '</li>'+
+                    '<li>'+
+                        '<a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">'+
+                            '<i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">CCC</span> </a>'+
+                        '<ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">'+
+                            '<li class="w-100">'+
+                                '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1 </a>'+
+                            '</li>'+
+                            '<li>'+
+                                '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2 </a>'+
+                            '</li>'+
+                        '</ul>'+
+                    '</li>'+
+                    '<li>'+
+                        '<a href="#" class="nav-link px-0 align-middle">'+
+                            ' <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Holder</span></a>'+
+                    '</li>'+
+                    '<li>'+
+                        '<a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">'+
+                            '<i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Holder Dropdown</span></a>'+
+                        '<ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">'+
+                            '<li class="w-100">'+
+                                '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1</a>'+
+                            '</li>'+
+                            '<li>'+
+                                '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2</a>'+
+                            '</li>'+
+                        '</ul>'+
+                    '</li>'+
+                    '<li>'+
+                        '<a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">'+
+                            '<i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Holder Dropdown</span> </a>'+
+                            '<ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">'+
+                            '<li class="w-100">'+
+                                '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>'+
+                            '</li>'+
+                            '<li>'+
+                                '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>'+
+                            '</li>'+
+                            '<li>'+
+                                '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>'+
+                            '</li>'+
+                            '<li>'+
+                                '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>'+
+                            '</li>'+
+                        '</ul>'+
+                    '</li>'+
+                    '<li>'+
+                        '<a href="#" class="nav-link px-0 align-middle">'+
+                            '<i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Holder</span> </a>'+
+                    '</li>'+
+                '</ul>'+
+            '</div>'
+            );
+        });
+
+        $('#config').on('click',function(){
+            $('#chat_div').remove();
+            $('#sheet_div').remove();
+            $('#file_div').remove();
+            $('#config_div').remove();
+
+            $('#selection_menu').append(
+
+            '<div id="sheet_div" name="sheet_div">'+
+                '<ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">'+
+                    '<li class="nav-item">'+
+                        '<a href="#" class="nav-link align-middle px-0">'+
+                            '<i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Holder</span>'+
+                        '</a>'+
+                    '</li>'+
+                    '<li>'+
+                        '<a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">'+
+                            '<i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">AAAbAn</span> </a>'+
+                        '<ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">'+
+                            '<li class="w-100">'+
+                                '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1 </a>'+
+                            '</li>'+
+                            '<li>'+
+                                '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2 </a>'+
+                            '</li>'+
+                        '</ul>'+
+                    '</li>'+
+                    '<li>'+
+                        '<a href="#" class="nav-link px-0 align-middle">'+
+                            ' <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Holder</span></a>'+
+                    '</li>'+
+                    '<li>'+
+                        '<a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">'+
+                            '<i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Holder Dropdown</span></a>'+
+                        '<ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">'+
+                            '<li class="w-100">'+
+                                '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1</a>'+
+                            '</li>'+
+                            '<li>'+
+                                '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2</a>'+
+                            '</li>'+
+                        '</ul>'+
+                    '</li>'+
+                    '<li>'+
+                        '<a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">'+
+                            '<i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Holder Dropdown</span> </a>'+
+                            '<ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">'+
+                            '<li class="w-100">'+
+                                '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>'+
+                            '</li>'+
+                            '<li>'+
+                                '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>'+
+                            '</li>'+
+                            '<li>'+
+                                '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>'+
+                            '</li>'+
+                            '<li>'+
+                                '<a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>'+
+                            '</li>'+
+                        '</ul>'+
+                    '</li>'+
+                    '<li>'+
+                        '<a href="#" class="nav-link px-0 align-middle">'+
+                            '<i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Holder</span> </a>'+
+                    '</li>'+
+                '</ul>'+
+            '</div>'
+            );
+        });
+
     </script>
 
 </section>   
