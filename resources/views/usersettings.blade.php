@@ -22,9 +22,12 @@
 
                         <div id="profileedit" class="d-none">
                             aaaaaaaaaaaaaaaaaaaaaaaa
-                            <form method="POST">   
+                            <form method="POST">
+                                <label for="text">Username: </label>  
                                 <input type="text" placeholder="Username" value="{{$user->name}}" title="Username">
-                                <input type="select" value="{{$user->titlepre}}" title="titlepre">
+                                <br>
+                                <center> Title </center>
+                                <select value="{{$user->titlepre}}" id="titlepre" name="titlepre">
                                     <option value="Awkward">Awkward</option>    
                                     <option value="Beginner">Beginner</option>
                                     <option value="Brave">Brave</option>
@@ -37,6 +40,7 @@
                                     <option value="Determined">Determined</option>
                                     <option value="Devilish">Devilish</option>
                                     <option value="Dumb">Dumb</option>
+                                    <option value="Erratic">Erratic</option>
                                     <option value="Fluffy">Fluffy</option>
                                     <option value="Friendzoned">Friendzoned</option>
                                     <option value="Good">Good</option>
@@ -58,8 +62,9 @@
                                     <option value="Special">Special</option>
                                     <option value="Unidentified">Unidentified</option>
                                     <option value="Worrisome">Worrisome</option>
+                                </select>
 
-                                <input type="select" value="{{$user->title}}" title="title"> 
+                                <select value="{{$user->title}}" id="title" name="titlepre">
                                     <option value="Aasimar">Aasimar</option>    
                                     <option value="Adventurer">Adventurer</option>
                                     <option value="Ant">Ant</option>
@@ -68,37 +73,48 @@
                                     <option value="Cat">Cat</option>
                                     <option value="Candy">Candy</option>
                                     <option value="Centaur">Centaur</option>
+                                    <option value="Cleric">Cleric</option> 
                                     <option value="Combatant">Combatant</option>
                                     <option value="Creature">Creature</option>
                                     <option value="Dog">Dog</option>
+                                    <option value="Dragonborn">Dragonborn</option>
+                                    <option value="Dungeon Master">Dungeon Master</option> 
                                     <option value="Dwarf">Dwarf</option>
                                     <option value="Eagle">Eagle</option>
                                     <option value="Elf">Elf</option>
                                     <option value="Enemy">Enemy</option>
                                     <option value="Fairy">Fairy</option>
+                                    <option value="Firbolg">Firbolg</option>
                                     <option value="Friend">Friend</option>
                                     <option value="Goblin">Goblin</option>
+                                    <option value="Goliath">Goliath</option>
+                                    <option value="Half-elf">Half-elf</option>
+                                    <option value="Half-orc">Half-orc</option>
                                     <option value="Human">Human</option>
                                     <option value="Investigator">Investigator</option>
                                     <option value="Kenku">Kenku</option>
                                     <option value="Leader">Leader</option>
                                     <option value="Mage">Mage</option>
+                                    <option value="Master">Master</option> 
                                     <option value="Oaf">Oaf</option>
-                                    <option value="Occultist">Occultist</option>  
+                                    <option value="Occultist">Occultist</option>
                                     <option value="Orc">Orc</option>
                                     <option value="Owl">Owl</option>
                                     <option value="Potato">Potato</option>
+                                    <option value="Rogue">Rogue</option> 
                                     <option value="Scammer">Scammer</option>
                                     <option value="Shopkeeper">Shopkeeper</option>
                                     <option value="Snowflake">Snowflake</option>
                                     <option value="Sorcerer">Sorcerer</option>
+                                    <option value="Specialist">Sorcerer</option>
                                     <option value="Tabaxi">Tabaxi</option>
                                     <option value="Thief">Thief</option>
                                     <option value="Tiefling">Tiefling</option>
                                     <option value="Warrior">Warrior</option>
                                     <option value="Weirdo">Weirdo</option>
                                     <option value="Wizard">Wizard</option>    
-                            </form>
+                                </select>
+                                </form>
                         </div> 
                     </div> 
                     
