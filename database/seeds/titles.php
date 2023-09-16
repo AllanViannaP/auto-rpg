@@ -16,7 +16,6 @@ class titles extends Seeder
     {
         $sql = file_get_contents('app/DBSeeds/titles.txt');
         $save  =  explode(';',$sql);
-        error_log($sql);
         foreach ($save as $holder) {
             $sv  =  explode(',',$holder);
             $sv[0] = preg_replace('/\n/', '', $sv[0]);
