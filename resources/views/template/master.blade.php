@@ -17,6 +17,21 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <script src="js/jquery-3.2.1.min.js"></script>
+
+        <style>
+            .cursor_pointer {
+                cursor: pointer;
+            }
+
+            .size_10 {
+                font-size: 48px;
+            }
+
+            .size_5{
+                font-size: 24px;
+            }
+
+        </style>
     </head>
 
     <body id="page-top">
@@ -35,13 +50,13 @@
                         @auth
                         <i class="bi bi-person-fill mt-2"></i>
                         <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="modal" data-bs-target="#feedbackModal">My account</a>
+                            <a class="nav-link cursor_pointer" data-bs-toggle="modal" data-bs-target="#feedbackModal">My account</a>
                         </li>
 
                         @else
                             <li class="nav-item">
-                                <a class="nav-link me-lg-3 btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" href="{{route('login')}}">
-                                    <font color="white">Login</font></a>
+                                <a class="nav-link me-lg-3 btn btn-primary rounded-pill px-3 mb-2 mb-lg-0 text-light" href="{{route('login')}}">
+                                    Login</a>
                             </li>
                         @endauth
                     </ul>
@@ -68,8 +83,7 @@
                         <h4 class="modal-title font-alt text-white" id="feedbackModalLabel">My account</h4>
                         <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body border-0 p-4">
-                            <font size="5">
+                    <div class="modal-body border-0 p-4 size_5">
                                 <div class="form-floating mb-3">
                                     <a class="nav-link rounded-pill px-3 mb-2 mb-lg-0" href="{{route('mygames')}}">
                                         <i class="bi bi-dice-5"></i> &nbsp; My games</a>
@@ -84,7 +98,6 @@
                                     <a class="nav-link rounded-pill px-3 mb-2 mb-lg-0" href="{{route('logout')}}">
                                         <i class="bi bi-door-closed"></i> &nbsp; Logout</a>
                                 </div>
-                            </font>
                     </div>
                 </div>
             </div>

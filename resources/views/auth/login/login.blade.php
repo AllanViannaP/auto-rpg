@@ -47,8 +47,7 @@
                                     </form>
                                     <br>
                                     <div class="mt-3">
-                                        <span>Don't have an account?<a class="nav-link" href="{{route('register')}}">
-                                            <font color="blue">Sign In</font></a> 
+                                        <span>Don't have an account?<a class="nav-link" href="{{route('register')}}" style="color:blue">Sign In</a> 
                                         </span>
                                     </div>
                                 </div>
