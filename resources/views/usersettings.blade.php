@@ -9,7 +9,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="h3">My Profile 
-                                <i class="bi bi-pencil-square h5" style="color: grey" id="edit_profile" name="edit_profile"></i>
+                            <i class="bi bi-pencil-square h5" style="color: grey" id="edit_profile" name="edit_profile"></i>
                         </div>
                         
                     </div>
@@ -21,100 +21,13 @@
                         </div>
 
                         <div id="profileedit" class="d-none">
-                            aaaaaaaaaaaaaaaaaaaaaaaa
                             <form method="POST">
                                 <label for="text">Username: </label>  
                                 <input type="text" placeholder="Username" value="{{$user->name}}" title="Username">
                                 <br>
                                 <center> Title </center>
-                                <select value="{{$user->titlepre}}" id="titlepre" name="titlepre">
-                                    <option value="Awkward">Awkward</option>    
-                                    <option value="Beginner">Beginner</option>
-                                    <option value="Brave">Brave</option>
-                                    <option value="Chunky">Chunky</option>
-                                    <option value="Chaotic">Chaotic</option> 
-                                    <option value="Clumsy">Clumsy</option>
-                                    <option value="Confused">Confused</option>
-                                    <option value="Crazy">Crazy</option>
-                                    <option value="Cunning">Cunning</option>
-                                    <option value="Determined">Determined</option>
-                                    <option value="Devilish">Devilish</option>
-                                    <option value="Dumb">Dumb</option>
-                                    <option value="Erratic">Erratic</option>
-                                    <option value="Fluffy">Fluffy</option>
-                                    <option value="Friendzoned">Friendzoned</option>
-                                    <option value="Good">Good</option>
-                                    <option value="Lawful">Lawful</option>  
-                                    <option value="Lost">Lost</option>
-                                    <option value="Lumbering">Lumbering</option>
-                                    <option value="Majestic">Majestic</option>
-                                    <option value="Merciful">Merciful</option>
-                                    <option value="Merciless">Merciless</option>
-                                    <option value="Neutral">Neutral</option>
-                                    <option value="Nimble">Nimble</option>
-                                    <option value="Normal">Normal</option>
-                                    <option value="Plain">Plain</option>
-                                    <option value="Popular">Popular</option>
-                                    <option value="Purring">Purring</option>
-                                    <option value="Ruthless">Ruthless</option>
-                                    <option value="Silly">Silly</option>
-                                    <option value="Smart">Smart</option>
-                                    <option value="Special">Special</option>
-                                    <option value="Unidentified">Unidentified</option>
-                                    <option value="Worrisome">Worrisome</option>
-                                </select>
-
-                                <select value="{{$user->title}}" id="title" name="titlepre">
-                                    <option value="Aasimar">Aasimar</option>    
-                                    <option value="Adventurer">Adventurer</option>
-                                    <option value="Ant">Ant</option>
-                                    <option value="Arsonist">Arsonist</option>
-                                    <option value="Barbarian">Barbarian</option>
-                                    <option value="Cat">Cat</option>
-                                    <option value="Candy">Candy</option>
-                                    <option value="Centaur">Centaur</option>
-                                    <option value="Cleric">Cleric</option> 
-                                    <option value="Combatant">Combatant</option>
-                                    <option value="Creature">Creature</option>
-                                    <option value="Dog">Dog</option>
-                                    <option value="Dragonborn">Dragonborn</option>
-                                    <option value="Dungeon Master">Dungeon Master</option> 
-                                    <option value="Dwarf">Dwarf</option>
-                                    <option value="Eagle">Eagle</option>
-                                    <option value="Elf">Elf</option>
-                                    <option value="Enemy">Enemy</option>
-                                    <option value="Fairy">Fairy</option>
-                                    <option value="Firbolg">Firbolg</option>
-                                    <option value="Friend">Friend</option>
-                                    <option value="Goblin">Goblin</option>
-                                    <option value="Goliath">Goliath</option>
-                                    <option value="Half-elf">Half-elf</option>
-                                    <option value="Half-orc">Half-orc</option>
-                                    <option value="Human">Human</option>
-                                    <option value="Investigator">Investigator</option>
-                                    <option value="Kenku">Kenku</option>
-                                    <option value="Leader">Leader</option>
-                                    <option value="Mage">Mage</option>
-                                    <option value="Master">Master</option> 
-                                    <option value="Oaf">Oaf</option>
-                                    <option value="Occultist">Occultist</option>
-                                    <option value="Orc">Orc</option>
-                                    <option value="Owl">Owl</option>
-                                    <option value="Potato">Potato</option>
-                                    <option value="Rogue">Rogue</option> 
-                                    <option value="Scammer">Scammer</option>
-                                    <option value="Shopkeeper">Shopkeeper</option>
-                                    <option value="Snowflake">Snowflake</option>
-                                    <option value="Sorcerer">Sorcerer</option>
-                                    <option value="Specialist">Sorcerer</option>
-                                    <option value="Tabaxi">Tabaxi</option>
-                                    <option value="Thief">Thief</option>
-                                    <option value="Tiefling">Tiefling</option>
-                                    <option value="Warrior">Warrior</option>
-                                    <option value="Weirdo">Weirdo</option>
-                                    <option value="Wizard">Wizard</option>    
-                                </select>
-                                </form>
+                                
+                            </form>
                         </div> 
                     </div> 
                     
@@ -123,9 +36,36 @@
                 <br>
 
                 <div class="card">
-                    <div class="card-header"> Account info </div>
-                    <div class="card-body"> 
-                    <div> Email: {{$user->email}} </div>
+                    <div class="card-header"> Account info 
+                        <i class="bi bi-pencil-square h5" style="color: grey" id="edit_info" name="edit_info"></i>
+                    </div>
+                    <div class="card-body">
+                        <div id="accinfo" class=""> 
+                            <div> Email: {{$user->email}} </div>
+                        </div>
+                        <div id="accedit" class="d-none">
+                            <form method="POST">
+                                <label for="text">Email: </label>  
+                                <input type="text" placeholder="myemail@email.com" value="{{$user->name}}" title="Email">
+                                Criar confirmação de email
+                                <br>
+                            </form>
+                            <div id="changepassbutton" class="">
+                                <button type="button" onclick="shift('changepassbutton','passedit')">Change Password</button>
+                            </div>
+                            <div id="passedit" class="d-none">
+                                <form method="POST">
+                                    <label for="currpassword">Current password: </label>  
+                                    <input type="text" title="currpassword" id="currpassword"> <br>
+                                    <label for="newpassword">New password: </label>  
+                                    <input type="text" title="newpassword" id="newpassword"><br>
+                                    <label for="confnewpassword">Confirm the new password: </label>  
+                                    <input type="text" title="confnewpassword" id="confnewpassword"><br>
+                                </form>
+                                <button type="button" onclick="shift('passedit','changepassbutton')">Cancel</button>
+                                <button type="submit" onclick="">Confirm</button>
+                            
+                        </div>
                     </div>
                 </div>
             </div>
@@ -148,6 +88,36 @@
             check = 1;
         }
     });
+        var checki= 1;
+    $('#edit_info').on('click',function(){
+        if(checki==1){
+            $("#accinfo").addClass('d-none');
+            $("#accedit").removeClass('d-none');
+            checki = 0;
+        }
+        else{
+            $("#accinfo").removeClass('d-none');
+            $("#accedit").addClass('d-none');
+            checki = 1;
+        }
+    });
 
 </script>
+    
+<script>
+    //
+   // function shift(hide,show){
+     //   $(hide).addClass('d-none');
+    //    $(show).removeClass('d-none');
+   // }
+
+    function shift(hide, show) {
+        hideElement = document.getElementById(hide);
+        showElement = document.getElementById(show);
+        hideElement.classList.add('d-none');
+        showElement.classList.remove('d-none');
+    }
+
+</script>
+
 @endsection
