@@ -17,21 +17,6 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <script src="js/jquery-3.2.1.min.js"></script>
-
-        <style>
-            .cursor_pointer {
-                cursor: pointer;
-            }
-
-            .size_10 {
-                font-size: 48px;
-            }
-
-            .size_5{
-                font-size: 24px;
-            }
-
-        </style>
     </head>
 
     <body id="page-top">

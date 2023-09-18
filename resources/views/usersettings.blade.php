@@ -5,33 +5,24 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <h1>Account Settings</h1>
-                <div class="card">
-                    <div class="card-header">
-                        <div class="h3">My Profile 
-                            <i class="bi bi-pencil-square h5" style="color: grey" id="edit_profile" name="edit_profile"></i>
+                <h2>Account Settings</h2> <br> <br><br>
+                            <i class="bi bi-pencil-square h5 text-secondary end-div" id="edit_profile" name="edit_profile"></i>
                         </div>
-                        
-                    </div>
-
-                    <div class="card-body">
                         <div id="profileinfo" class="">
-                            <p>Username: {{$user->name}}</p>
-                            <p>Title: {{$user->titlepre}} {{$user->title}}</p>
+                            <p class="centered-div">Username: {{$user->name}}</p>
+                            <p class="centered-div">Title: {{$user->titlepre}} {{$user->title}}</p>
                         </div>
-
                         <div id="profileedit" class="d-none">
-                            <form method="POST">
-                                <label for="text">Username: </label>  
+                            <form method="POST" class="centered-div">
                                 <input type="text" placeholder="Username" value="{{$user->name}}" title="Username">
                                 <br>
-                                <center> Title </center>
-                                
                             </form>
+
+
                         </div> 
-                    </div> 
                     
-                </div>  
+                    
+
 
                 <br>
 
@@ -40,7 +31,7 @@
                         <i class="bi bi-pencil-square h5" style="color: grey" id="edit_info" name="edit_info"></i>
                     </div>
                     <div class="card-body">
-                        <div id="accinfo" class=""> 
+                        <div id="accinfo" class="" class="centered-div"> 
                             <div> Email: {{$user->email}} </div>
                         </div>
                         <div id="accedit" class="d-none">
@@ -119,5 +110,10 @@
     }
 
 </script>
+
+
+
+
+
 
 @endsection

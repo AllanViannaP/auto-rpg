@@ -11160,3 +11160,79 @@ footer a:hover, footer a:active, footer a:focus {
     max-width: 17rem;
   }
 }
+
+.cursor_pointer {
+    cursor: pointer;
+}
+
+.size_10 {
+    font-size: 48px;
+}
+
+.size_5{
+    font-size: 24px;
+}
+
+
+
+
+
+
+.centered-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.end-div{
+  display: flex;
+  justify-content: flex-end; 
+}
+
+.custom-select{
+position: relative;
+display: inline-block;
+border: 1px solid #ccc;
+width: 150px;
+}
+
+.select-button {
+  cursor:pointer;
+  user-select: none;
+  text-align: center;
+  padding: 5px;
+}
+
+.up-button{
+  border-bottom: 1px solid #ccc;
+}
+
+.down-button{
+  border-top: 1px solid #ccc;
+}
+
+.options{
+position: absolute;
+top: 100%;
+left: 0;
+right: 0;
+background-color: white;
+border: 1px solid #ccc;
+display: none;
+max-height: 100px;
+overflow-y: auto;
+}
+
+.option{
+  padding: 5px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.option.selected{
+  background-color: #f2f2f2;
+}
+
+.options-show{
+display:block;
+}
