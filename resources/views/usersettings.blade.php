@@ -83,105 +83,84 @@
     </div>
 </section>
 
-
 <script>
-    var check= 1;
-    $('#edit_profile').on('click',function(){
-        if(check==1){
-            $("#profileinfo").addClass('d-none');
-            $("#profileedit").removeClass('d-none');
-            check = 0;
-        }
-        else{
-            $("#profileinfo").removeClass('d-none');
-            $("#profileedit").addClass('d-none');
-            check = 1;
-        }
-    });
-        var checki= 1;
-    $('#edit_info').on('click',function(){
-        if(checki==1){
-            $("#accinfo").addClass('d-none');
-            $("#accedit").removeClass('d-none');
-            checki = 0;
-        }
-        else{
-            $("#accinfo").removeClass('d-none');
-            $("#accedit").addClass('d-none');
-            checki = 1;
-        }
-    });
-
-</script>
-    
-<script>
-    //
-   // function shift(hide,show){
-     //   $(hide).addClass('d-none');
-    //    $(show).removeClass('d-none');
-   // }
-
-    function shift(hide, show) {
-        hideElement = document.getElementById(hide);
-        showElement = document.getElementById(show);
-        hideElement.classList.add('d-none');
-        showElement.classList.remove('d-none');
+// ------------------User Settings Scripts------------------------------------
+// Edit boxes
+var check= 1;
+$('#edit_profile').on('click',function(){
+    if(check==1){
+        $("#profileinfo").addClass('d-none');
+        $("#profileedit").removeClass('d-none');
+        check = 0;
     }
-
-</script>
-
-<script>
-// Title selection box
-
-    document.addEventListener("DOMContentLoaded", function(){
-        loadOptions(0);
-        loadOptions(1);
-        loadSelectedOption();
-    });
-
-    function loadOptions(boxIndex){
-        //precisa de ajax aq pra pegar a opção selecionada do DB.
-        fetch('get_options.php?value${boxIndex}')
-            .then(response => response.json())
-            .then(data =>{
-
-                selectBox = document.getElementById('custom-select-${boxIndex}');
-                selectBox.innerHTML = "";
-                data.forEach(option => {
-                    optionElement.value = option.id;
-                    optionElement.textContent = option.title;
-                    selectBox.appendChild(optionElement);
-                });
-            })
-            .catch(error => console.error("Error fetching options: " + error));
+    else{
+        $("#profileinfo").removeClass('d-none');
+        $("#profileedit").addClass('d-none');
+        check = 1;
     }
-
-    function randomizeSelection(boxIndex){
-        selectBox = document.getElementById('custom-select-${boxIndex}');
-        options = selectBox.options;
-        randomIndex = Math.floor(Math.random()*options.lenght);
-        selectBox.selectedIndex = randomIndex;
+});
+    var checki= 1;
+$('#edit_info').on('click',function(){
+    if(checki==1){
+        $("#accinfo").addClass('d-none');
+        $("#accedit").removeClass('d-none');
+        checki = 0;
     }
+    else{
+        $("#accinfo").removeClass('d-none');
+        $("#accedit").addClass('d-none');
+        checki = 1;
+    }
+});
 
-    function confirmSelection(){
-        titlepre = document.getElementById("custom-select-0").value;
-        title = document.getElementById("custom-select-1").value;
-        //precisa de ajax aqui pra salvar as opcoes selecionadas no DB
+//User Titles
+document.addEventListener("DOMContentLoaded", function(){
+    loadOptions(0);
+    loadOptions(1);
+    loadSelectedOption();
+});
 
-        fetch("save_selected_options.php", {
-            method: "POST",
-            body: JSON.stringify({ titlepre, title}),
-            headers: {
-                "Content-type": "application/json"
-            }
-        })
-
+function loadOptions(boxIndex){
+    //precisa de ajax aq pra pegar a opção selecionada do DB.
+    fetch('get_options.php?value${boxIndex}')
         .then(response => response.json())
-        .then(data => console.log("Selected options saved successfully: " +JSON.stringify(data)))
-        .catch(error => console.error("Errir saving selected options: " +error));
-    }
+        .then(data =>{
+
+            selectBox = document.getElementById('custom-select-${boxIndex}');
+            selectBox.innerHTML = "";
+            data.forEach(option => {
+                optionElement.value = option.id;
+                optionElement.textContent = option.title;
+                selectBox.appendChild(optionElement);
+            });
+        })
+        .catch(error => console.error("Error fetching options: " + error));
+}
+
+function randomizeSelection(boxIndex){
+    selectBox = document.getElementById('custom-select-${boxIndex}');
+    options = selectBox.options;
+    randomIndex = Math.floor(Math.random()*options.lenght);
+    selectBox.selectedIndex = randomIndex;
+}
+
+function confirmSelection(){
+    titlepre = document.getElementById("custom-select-0").value;
+    title = document.getElementById("custom-select-1").value;
+    //precisa de ajax aqui pra salvar as opcoes selecionadas no DB
+
+    fetch("save_selected_options.php", {
+        method: "POST",
+        body: JSON.stringify({ titlepre, title}),
+        headers: {
+            "Content-type": "application/json"
+        }
+    })
+
+    .then(response => response.json())
+    .then(data => console.log("Selected options saved successfully: " +JSON.stringify(data)))
+    .catch(error => console.error("Errir saving selected options: " +error));
+}
+// ----------------- End of User Settings Scripts -----------------------------
 </script>
-
-
-
 @endsection
