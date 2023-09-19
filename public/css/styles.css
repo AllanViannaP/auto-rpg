@@ -11173,66 +11173,23 @@ footer a:hover, footer a:active, footer a:focus {
     font-size: 24px;
 }
 
-
-
-
-
-
 .centered-div {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.end-div{
+.end-div {
   display: flex;
   justify-content: flex-end; 
 }
 
-.custom-select{
-position: relative;
-display: inline-block;
-border: 1px solid #ccc;
-width: 150px;
+.custom-box {
+  display: inline-block;
+  margin-right: 20px;
 }
 
-.select-button {
-  cursor:pointer;
-  user-select: none;
-  text-align: center;
-  padding: 5px;
-}
-
-.up-button{
-  border-bottom: 1px solid #ccc;
-}
-
-.down-button{
-  border-top: 1px solid #ccc;
-}
-
-.options{
-position: absolute;
-top: 100%;
-left: 0;
-right: 0;
-background-color: white;
-border: 1px solid #ccc;
-display: none;
-max-height: 100px;
-overflow-y: auto;
-}
-
-.option{
-  padding: 5px;
-  cursor: pointer;
-  user-select: none;
-}
-
-.option.selected{
-  background-color: #f2f2f2;
-}
-
-.options-show{
-display:block;
+custom-select{
+  width: 150px;
+  height: 150px;
 }

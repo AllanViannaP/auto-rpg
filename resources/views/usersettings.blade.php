@@ -19,6 +19,25 @@
                             </form>
 
 
+                            <div class="custom-box" id="custom-box-0">
+                                <select class="custom-select" id ="custom-select-0"> 
+
+                                </select>
+                                <button onclick="randomizeselection(0)"> Randomize <button>
+                            </div>
+
+                            <div class="custom-box" id="custom-box-1">
+                                <select class="custom-select" id ="custom-select-1"> 
+
+                                </select>
+                                <button onclick="randomizeselection(1)"> Randomize <button>
+                            </div>
+
+                            <button onclick="confirmSelection()">Confirm</button>
+
+
+
+
                         </div> 
                     
                     
@@ -111,8 +130,57 @@
 
 </script>
 
+<script>
+// Title selection box
 
+    document.addEventListener("DOMContentLoaded", function(){
+        loadOptions(0);
+        loadOptions(1);
+        loadSelectedOption();
+    });
 
+    function loadOptions(boxIndex){
+        //precisa de ajax aq pra pegar a opção selecionada do DB.
+        fetch('get_options.php?value${boxIndex}')
+            .then(response => response.json())
+            .then(data =>{
+
+                selectBox = document.getElementById('custom-select-${boxIndex}');
+                selectBox.innerHTML = "";
+                data.forEach(option => {
+                    optionElement.value = option.id;
+                    optionElement.textContent = option.title;
+                    selectBox.appendChild(optionElement);
+                });
+            })
+            .catch(error => console.error("Error fetching options: " + error));
+    }
+
+    function randomizeSelection(boxIndex){
+        selectBox = document.getElementById('custom-select-${boxIndex}');
+        options = selectBox.options;
+        randomIndex = Math.floor(Math.random()*options.lenght);
+        selectBox.selectedIndex = randomIndex;
+    }
+
+    function confirmSelection(){
+        titlepre = document.getElementById("custom-select-0").value;
+        title = document.getElementById("custom-select-1").value;
+        //precisa de ajax aqui pra salvar as opcoes selecionadas no DB
+
+        fetch("save_selected_options.php", {
+            method: "POST",
+            body: JSON.stringify({ titlepre, title}),
+            headers: {
+                "Content-type": "application/json"
+            }
+        })
+
+        .then(response => response.json())
+        .then(data => console.log("Selected options saved successfully: " +JSON.stringify(data)))
+        .catch(error => console.error("Errir saving selected options: " +error));
+    }
+</script>
 
 
 
