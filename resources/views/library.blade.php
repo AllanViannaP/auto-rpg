@@ -65,7 +65,6 @@
     function check(file){
         const files = file.files;
         const fileName = files[0].name;
-        console.log(fileName);
         $.ajax({headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
@@ -74,7 +73,7 @@
             dataType: "json",
             data: {file:fileName},
             success: function(Response){
-            
+                console.log(Response);
             }});
         }
 </script>
