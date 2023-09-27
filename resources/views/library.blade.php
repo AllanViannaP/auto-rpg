@@ -7,6 +7,9 @@
 @section('content')
 <section class="inner-page">
     
+
+
+
     <div class="col-xl-2 col-md-6 mb-4">
         <div class="card card border-left-primary shadow h-100 py-2" style="justify-content:center;  text-align: center;">
                 <a class="bi bi-plus-square size_10" data-bs-toggle="modal" data-bs-target="#fileModal"></a>
@@ -21,10 +24,10 @@
                     <h4 class="modal-title font-alt text-white" id="fileModalLabel">Add files</h4>
                     <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form method="POST" action='{{ route("new_file") }}'> 
+                <form method="POST" action='{{ route("new_file") }}' enctype="multipart/form-data"> 
                     @csrf
                         <div class="d-flex align-items-center ">
-                            <input class="mt-3 mb-3 form-control" type="file" name="file_insert[]" id="file" style="max-width:70%;" required/>
+                            <input class="mt-3 mb-3 form-control" type="file" name="file_insert[]" id="file"  style="max-width:70%;" required/>
                         </div>
 
                         <div id="new_files">
@@ -58,6 +61,19 @@
             '</div>'
         );
     }
+
+    $('#file').change(function() {
+                    $.ajax({headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        url: "{{ route('check_files') }}",
+                        type: "post",
+                        dataType: "json",
+                        success: function(Response){
+
+                        }});
+                        
+                        });
 </script>
 
 @endsection

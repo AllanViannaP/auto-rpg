@@ -20,6 +20,7 @@ Route::get('/usersettings', ['uses' => 'UserController@usersettings', 'as' => 'u
 Route::get('/library', ['uses' => 'UserController@library',  'as' => 'library']);
 
 Route::post('/new_file', ['uses' => 'UserController@new_file', 'as' => 'new_file']);
+Route::post('/check_files', ['uses' => 'UserController@check_files', 'as' => 'check_files']);
 //-- Rooms --
 Route::get('/mygames', ['uses' => 'RoomController@mygames',  'as' => 'mygames']);
 Route::get('/{code}', ['uses' => 'RoomController@rooms',  'as' => 'room']);

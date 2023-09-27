@@ -12,45 +12,58 @@ class UserController extends Controller
 {
 
     public function new_file(Request $request){
-        dd($request->all());
-        $check = $this->check_files($request);
-        if($check){
-            $i=0;
-            foreach($request as $holder){
-            DB::table('library')
-            ->insert([
-                'file'      => $holder->file_insert[$i],
-                'division'  => $holder->divison,
-                'type'      => 'algo',
-                'id_user'   => Auth::id(),
-            ]);
+        $check = $this->check_files($request,$i=0);
+        dd($check);
+            for($i=0;$i<count($request->file_insert);$i++){
+                $file = $request->file_insert[$i];
+                $file_name  = $file->getClientOriginalName();
+                $file_name = substr($file_name,0,-4);
 
-            $folder = "arquivos/recurso/ciclo_".$ciclo->id.'/'.$cpf->cpf;
-            $request->file("documento_insert")[$var]->storeAs($nome_pasta, $doc_nome);
-            $doc_caminho = 'recurso/ciclo_'.$ciclo->id.'/'.$cpf->cpf.'/'.$doc_nome;
-            $i++;
+                dd($request->divison);
+
+                DB::table('library')
+                ->insert([
+                    'file'      => $file_name,
+                    'division'  => $request->divison,
+                    'type'      => $file->getClientOriginalExtension(),
+                    'id_user'   => Auth::id(),
+                ]);
+
+                $folder = "files/".$request->division."/user_".Auth::id();
+                $request->file("file_insert")[$i]->storeAs($folder, $file->getClientOriginalName());
+
+                return redirect()->route('libary');
             }
-        }
-
-        
-
-        return ;
     }
 
-    public function check_files($check){
-        foreach($check->file_insert as $holder){
+    public function check_files(Request $request){
+        dd($request->all());
+    }
+
+    public function check_this($check,$i){
+        if($i<count($check->file_insert)){
+            $file = $check->file_insert[$i];
+            $file_name  = $file->getClientOriginalName();
+            $file_name = substr($file_name,0,-4);
+            
             $file = DB::table('library')
             ->where('id_user','=',Auth::id())
-            ->where('file','=',$holder)
+            ->where('file','=',$file_name)
             ->select('file')
             ->first();
 
-            if(!is_null($file)){
-                dd($file);
-            return false;}
+            if(is_null($file)){
+                return $this->check_files($check,$i+=1);
+            }
+            else{
+                return false;
+            }
         }
-        return true;
+        else{
+            return true;
+            }
     }
+
 
     public function usersettings(){
         $user=DB::table('users')
@@ -64,7 +77,11 @@ class UserController extends Controller
     }
 
     public function library(){
-        return view('library');
+        $files = DB::table('library')
+        ->where('id_user','=',Auth::id())
+        ->get();
+
+        return view('library',['files' => $files]);
     }
 
 }
