@@ -142,17 +142,28 @@ class RoomController extends Controller
             }
 
             if($room->id_gm == Auth::id()){
+                $chat = DB::table('chat')
+                ->where('id_room','=',$room->id)
+                ->orderby('id','desc')
+                ->get();
                 $dm = true;
                 return view('room',[
-                    'room' =>  $room,
-                    'dm'   => $dm,
+                    'room'  =>  $room,
+                    'dm'    =>  $dm,
+                    'chat'  =>  $chat,
                 ]);
             }
+
             else if($check){
+                $chat = DB::table('chat')
+                ->where('id_room','=',$room->id)
+                ->orderby('id','desc')
+                ->get();
                 $dm = false;
                 return view('room',[
                     'room' =>  $room,
                     'dm'   => $dm,
+                    'chat'  =>  $chat,
                 ]);
             }
             else{
