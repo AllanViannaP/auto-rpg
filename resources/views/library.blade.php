@@ -27,7 +27,7 @@
                 <form method="POST" action='{{ route("new_file") }}' enctype="multipart/form-data"> 
                     @csrf
                         <div class="d-flex align-items-center ">
-                            <input class="mt-3 mb-3 form-control" type="file" name="file_insert[]" id="file"  style="max-width:70%;" required/>
+                            <input class="mt-3 mb-3 form-control" type="file" name="file_insert[]" id="file" onchange="check(this)" style="max-width:70%;" required/>
                         </div>
 
                         <div id="new_files">
@@ -56,24 +56,27 @@
     function new_file(){
         $('#new_files').append(
             '<div class="d-flex align-items-center" id="new_file_div">'+
-                '<input class="mt-3 mb-3 form-control" type="file" name="file_insert[]" id="file" style="max-width:70%;" required/>'+
+                '<input class="mt-3 mb-3 form-control" type="file" onchange="check(this)" name="file_insert[]" id="file" style="max-width:70%;" required/>'+
                 ' <i class="bi bi-trash3 p-4" title="Remove" onclick="remove_file(this)"></i>'+
             '</div>'
         );
     }
 
-    $('#file').change(function() {
-                    $.ajax({headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        },
-                        url: "{{ route('check_files') }}",
-                        type: "post",
-                        dataType: "json",
-                        success: function(Response){
-
-                        }});
-                        
-                        });
+    function check(file){
+        const files = file.files;
+        const fileName = files[0].name;
+        console.log(fileName);
+        $.ajax({headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: "{{ route('check_files') }}",
+            type: "post",
+            dataType: "json",
+            data: {file:fileName},
+            success: function(Response){
+            
+            }});
+        }
 </script>
 
 @endsection
