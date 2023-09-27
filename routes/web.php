@@ -17,7 +17,9 @@ Route::post('/login/verify', ['uses' => 'Auth\LoginController@verify_login',  'a
 Route::get('/register', ['uses' => 'RegisterController@register', 'as' => 'register']);
 Route::post('/registrate', ['uses' => 'RegisterController@registrate', 'as' => 'registrate']);
 Route::get('/usersettings', ['uses' => 'UserController@usersettings', 'as' => 'usersettings']);
+Route::get('/library', ['uses' => 'UserController@library',  'as' => 'library']);
 
+Route::post('/new_file', ['uses' => 'UserController@new_file', 'as' => 'new_file']);
 //-- Rooms --
 Route::get('/mygames', ['uses' => 'RoomController@mygames',  'as' => 'mygames']);
 Route::get('/{code}', ['uses' => 'RoomController@rooms',  'as' => 'room']);
