@@ -20,6 +20,7 @@
         </div>
     </div>
 
+
     <div class="modal fade" id="fileModal" tabindex="-2" aria-labelledby="fileModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -87,10 +88,11 @@
 
             $('#append_div_'+div).append(
                 '<div id="mother_'+div+'"'+
-                    '<div class="col-xl-2 col-md-6 mb-4">'+
+                    '<div class="col-xl-1 col-md-6 mb-4">'+
                         '<div class="card card border-left-primary shadow h-100 py-2" style="justify-content:center;  text-align: center;">'+
                                 '<a class="bi bi-plus-square size_10" data-bs-toggle="modal" data-bs-target="#fileModal"></a>'+
                                 '<hr>'+
+                                '<p>New File</p>'+
                         '</div>'+
                     '</div>'+
                 '</div>')
