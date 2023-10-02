@@ -11,6 +11,15 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
 
+    public function new_division(Request $request){
+        //create ajax
+        $this->create_division($request->name);
+    }
+
+    public function create_division($name){
+        //create division DB
+    }
+
     public function new_file(Request $request){
         for($i=0;$i<count($request->file_insert);$i++){
             $file = $request->file_insert[$i];

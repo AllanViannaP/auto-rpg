@@ -9,13 +9,13 @@
     
     <?php $i=0; ?>
     @foreach($division as $holder)
-        <div>
+        <div id="father_{{$i}}">
             <div class="d-flex mt-3 align-items-center ">
                 <h3 style="margin-left: 2%; margin-bottom: 0%;" >{{$holder->division}}</h3>
-                <i class="bi bi-plus-circle" id="new_div_{{$i}}" style="margin-left: 2%"></i>
-                <i class="bi bi-pencil-square" id="edit_div_{{$i}}" style="margin-left: 1%"></i>
+                <i class="bi bi-plus-circle cursor_pointer" id="new_div_{{$i}}" data-bs-toggle="modal" data-bs-target="#newModal" style="margin-left: 2%"></i>
+                <i class="bi bi-pencil-square cursor_pointer" id="edit_div_{{$i}}" data-bs-toggle="modal" data-bs-target="#editModal" style="margin-left: 1%"></i>
                 @if($i != 0)
-                    <i class="bi bi-trash3" id="trash_div_{{$i}}" style="margin-left: 1%"></i>
+                    <i class="bi bi-trash3 cursor_pointer" id="trash_div_{{$i}}" onclick="delete({{$i}})" style="margin-left: 1%"></i>
                 @endif
                 
             </div>
@@ -59,6 +59,41 @@
             </div>
         </div>
     </div>
+
+
+    <div class="modal fade" id="newModal" tabindex="-2" aria-labelledby="newModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-gradient-primary-to-secondary p-4">
+                    <h4 class="modal-title font-alt text-white" id="newModallLabel">Add files</h4>
+                    <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="POST" action='{{ route("new_division") }}' enctype="multipart/form-data"> 
+                    @csrf
+
+                        <div class="form-group row mt-4 justify-content-center">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <div class="col-md-6">
+                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                            @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center justify-content-center mt-3 mb-3">
+                            <button type="submit" class="btn btn-primary">
+                                Create New Division
+                            </button>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
 </section>   
 
 <script>
