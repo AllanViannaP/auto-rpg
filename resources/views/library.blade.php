@@ -10,8 +10,8 @@
 
 
     <div>
-        <h3 class="mt-3">Division test</h3>
-        <div class=" col-md-6 mb-2 d-flex cursor_pointer" onclick="divisions_append(this)">
+        <h3 class="mt-3" style="margin-left: 2%">Division test</h3>
+        <div class=" col-md-6 mb-2 d-flex cursor_pointer" onclick="divisions_append(1)">
             <hr class=" col-md-6"> 
             <i class="bi bi-arrow-down-circle" id="down_1" style="margin-left: 5%"></i>
         </div>
@@ -81,16 +81,25 @@
         }
 
     function divisions_append(div){
-        $('#down_1').removeClass('bi bi-arrow-down-circle');
-        $('#down_1').addClass('bi bi-arrow-down-circle-fill');
+        if(!$('#mother_'+div).length){
+            $('#down_'+div).removeClass('bi bi-arrow-down-circle');
+            $('#down_'+div).addClass('bi bi-arrow-down-circle-fill');
 
-        $('#append_div_1').append(
-            '<div class="col-xl-2 col-md-6 mb-4">'+
-                '<div class="card card border-left-primary shadow h-100 py-2" style="justify-content:center;  text-align: center;">'+
-                        '<a class="bi bi-plus-square size_10" data-bs-toggle="modal" data-bs-target="#fileModal"></a>'+
-                        '<hr>'+
-                '</div>'+
-            '</div>')
+            $('#append_div_'+div).append(
+                '<div id="mother_'+div+'"'+
+                    '<div class="col-xl-2 col-md-6 mb-4">'+
+                        '<div class="card card border-left-primary shadow h-100 py-2" style="justify-content:center;  text-align: center;">'+
+                                '<a class="bi bi-plus-square size_10" data-bs-toggle="modal" data-bs-target="#fileModal"></a>'+
+                                '<hr>'+
+                        '</div>'+
+                    '</div>'+
+                '</div>')
+        }
+        else{
+            $('#down_'+div).removeClass('bi bi-arrow-down-circle-fill');
+            $('#down_'+div).addClass('bi bi-arrow-down-circle');
+            $('#mother_'+div).remove();
+        }
     }
     
 </script>
