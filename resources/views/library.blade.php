@@ -10,7 +10,15 @@
     <?php $i=0; ?>
     @foreach($files as $holder)
         <div>
-            <h3 class="mt-3" style="margin-left: 2%">{{$holder->division}}</h3>
+            <div class="d-flex mt-3 align-items-center ">
+                <h3 style="margin-left: 2%; margin-bottom: 0%;" >{{$holder->division}}</h3>
+                <i class="bi bi-plus-circle" id="new_div_{{$i}}" style="margin-left: 2%"></i>
+                <i class="bi bi-pencil-square" id="edit_div_{{$i}}" style="margin-left: 1%"></i>
+                @if($i != 0)
+                    <i class="bi bi-trash3" id="trash_div_{{$i}}" style="margin-left: 1%"></i>
+                @endif
+                
+            </div>
             <div class=" col-md-6 mb-2 d-flex cursor_pointer" onclick="divisions_append({{$i}})">
                 <hr class=" col-md-6"> 
                 <i class="bi bi-arrow-down-circle" id="down_{{$i}}" style="margin-left: 5%"></i>
