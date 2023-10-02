@@ -12,12 +12,24 @@ class UserController extends Controller
 {
 
     public function new_division(Request $request){
-        //create ajax
-        $this->create_division($request->name);
+        $divisions = DB::table('division_library')
+        ->where('division','=',$request->name)
+        ->first();
+        if(is_null($divisions)){
+            $this->create_division($request->name);
+            return "true";            
+        }else{
+            return "false";
+        }
     }
 
     public function create_division($name){
-        //create division DB
+        DB::table('division_library')
+            ->insert([
+                'division'  => $name,
+                'id_player'   => Auth::id(),
+            ]);
+        return true;
     }
 
     public function new_file(Request $request){

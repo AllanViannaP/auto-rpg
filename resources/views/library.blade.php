@@ -68,9 +68,6 @@
                     <h4 class="modal-title font-alt text-white" id="newModallLabel">Add files</h4>
                     <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form method="POST" action='{{ route("new_division") }}' enctype="multipart/form-data"> 
-                    @csrf
-
                         <div class="form-group row mt-4 justify-content-center">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
                             <div class="col-md-6">
@@ -84,11 +81,10 @@
                         </div>
 
                         <div class="d-flex align-items-center justify-content-center mt-3 mb-3">
-                            <button type="submit" class="btn btn-primary">
+                            <button class="btn btn-primary" onclick="new_division()">
                                 Create New Division
                             </button>
                         </div>
-                </form>
             </div>
         </div>
     </div>
@@ -109,6 +105,26 @@
             '</div>'
         );
     }
+
+    function new_division(){
+        var name = $('#name').val();
+        $.ajax({headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: "{{ route('new_division') }}",
+            type: "post",
+            dataType: "json",
+            data: {name:name},
+            success: function(Response){
+                if(Response){
+                    window.location.reload()
+                }
+                else{
+                    //swall alert here
+                }
+            }});
+        }
+    
 
     function check(file){
         const files = file.files;
