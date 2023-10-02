@@ -7,19 +7,20 @@
 @section('content')
 <section class="inner-page">
     
+    <?php $i=0; ?>
+    @foreach($files as $holder)
+        <div>
+            <h3 class="mt-3" style="margin-left: 2%">{{$holder->division}}</h3>
+            <div class=" col-md-6 mb-2 d-flex cursor_pointer" onclick="divisions_append({{$i}})">
+                <hr class=" col-md-6"> 
+                <i class="bi bi-arrow-down-circle" id="down_{{$i}}" style="margin-left: 5%"></i>
+            </div>
 
-
-    <div>
-        <h3 class="mt-3" style="margin-left: 2%">Division test</h3>
-        <div class=" col-md-6 mb-2 d-flex cursor_pointer" onclick="divisions_append(1)">
-            <hr class=" col-md-6"> 
-            <i class="bi bi-arrow-down-circle" id="down_1" style="margin-left: 5%"></i>
+            <div id="append_div_{{$i}}">
+            </div>
         </div>
-
-        <div id="append_div_1">
-        </div>
-    </div>
-
+        <?php $i++; ?>
+    @endforeach
 
     <div class="modal fade" id="fileModal" tabindex="-2" aria-labelledby="fileModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">

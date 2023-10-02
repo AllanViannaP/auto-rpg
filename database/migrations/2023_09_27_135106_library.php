@@ -17,7 +17,7 @@ class Library extends Migration
             $table->increments('id');
             $table->string('file', 500);
             $table->string('type', 30);
-            $table->string('divison',200);
+            $table->string('division',200);
             $table->unsignedInteger('id_user');
             $table->foreign('id_user')->references('id')->on('users');
         });
