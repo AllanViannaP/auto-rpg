@@ -8,7 +8,7 @@
 <section class="inner-page">
     
     <?php $i=0; ?>
-    @foreach($files as $holder)
+    @foreach($division as $holder)
         <div>
             <div class="d-flex mt-3 align-items-center ">
                 <h3 style="margin-left: 2%; margin-bottom: 0%;" >{{$holder->division}}</h3>

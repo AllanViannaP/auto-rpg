@@ -64,18 +64,20 @@ class UserController extends Controller
         ->where('id_user','=',Auth::id())
         ->get();
 
-        if($files == "[]"){
-            DB::table('library')
+        $division = DB::table('division_library')
+        ->where('id_player','=',Auth::id())
+        ->get();
+
+        if($division == "[]"){
+            DB::table('division_library')
             ->insert([
-                'file'      => "none",
-                'type'      => "none",
                 'division'  => "New Division",
-                'id_user'   => Auth::id(),
+                'id_player'   => Auth::id(),
             ]);
             return redirect()->route('library');
         }
 
-        return view('library',['files' => $files]);
+        return view('library',['files' => $files, 'division' => $division]);
     }
 
 }

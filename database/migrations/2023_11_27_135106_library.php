@@ -17,7 +17,8 @@ class Library extends Migration
             $table->increments('id');
             $table->string('file', 500);
             $table->string('type', 30);
-            $table->string('division',200);
+            $table->unsignedInteger('id_division');
+            $table->foreign('id_division')->references('id')->on('division_library');
             $table->unsignedInteger('id_user');
             $table->foreign('id_user')->references('id')->on('users');
         });
