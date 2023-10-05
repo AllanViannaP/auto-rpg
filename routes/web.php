@@ -17,6 +17,9 @@ Route::post('/login/verify', ['uses' => 'Auth\LoginController@verify_login',  'a
 Route::get('/register', ['uses' => 'RegisterController@register', 'as' => 'register']);
 Route::post('/registrate', ['uses' => 'RegisterController@registrate', 'as' => 'registrate']);
 Route::get('/usersettings', ['uses' => 'UserController@usersettings', 'as' => 'usersettings']);
+Route::get('/get-options/{order}', 'UserController@getOptions');
+Route::get('/get-selected-options', 'UserController@getSelectedOptions');
+Route::post('/save-selected-options', 'UserController@saveSelectedOptions');
 
 //-- Rooms --
 Route::get('/mygames', ['uses' => 'RoomController@mygames',  'as' => 'mygames']);
