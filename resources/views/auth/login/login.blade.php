@@ -38,7 +38,8 @@
                                             <label class="form-label">Password</label>
                                             <input class="form-control form-control-lg" type="password" name="password" />
                                             <small>
-                                                <a >Forgot your password?</a>
+                                                
+                                                <a href="/forgot-password">Forgot your password?</a>
                                             </small>
                                         </div>
                                         <div class="mt-3">

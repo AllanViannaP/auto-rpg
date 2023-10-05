@@ -22,7 +22,6 @@ class UserController extends Controller
         
     }
 
-
     public function forgotmp(){
         return view('forgotmp');
     }
