@@ -26,18 +26,16 @@
                             <option>{{$pref->title}}</option>
                         @endforeach
                     </select>
-                    <button onclick="randomizeselection(0)"> Randomize <button>
                 </div>
-
                 <div class="custom-box" id="custom-box-1">
                     <select class="custom-select" id ="custom-select-1"> 
                         @foreach($title as $title)
                             <option>{{$title->title}}</option>
                         @endforeach
                     </select>
-                    <button onclick="randomizeselection(1)"> Randomize <button>
-                </div>
 
+                    <button onclick=""> Randomize </button>
+                </div> <br><br>
                 <button onclick="confirmSelection()">Confirm</button>
             </div> 
                     
@@ -109,5 +107,9 @@ $('#edit_info').on('click',function(){
         checki = 1;
     }
 });
+
+    function randomtitles(){
+        
+    }
 </script>
 @endsection
