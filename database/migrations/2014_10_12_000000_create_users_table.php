@@ -20,10 +20,14 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->foreignId('titlepre')->constrained('user_titles')->default('Beginner');
-            $table->foreignId('titlepre')->constrained('user_titles')->default('Adventurer');
+            $table->unsignedInteger('titlepre');
+            $table->unsignedInteger('title');
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('titlepre')->references('id')->on('user_titles');
+            $table->foreign('title')->references('id')->on('user_titles');
+
         });
     }
 

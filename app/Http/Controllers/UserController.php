@@ -19,11 +19,6 @@ class UserController extends Controller
     public function editinfo(){
         
     }
-    
-    public function titleselect()
-    {
-        return view('custom_selection');
-    }
 
     public function getOptions($order){
         $options = UserTitle::where('order', $order)->get();
@@ -32,7 +27,6 @@ class UserController extends Controller
     
     public function getSelectedOptions()
     {
-        $user = Yser::find(1);
         return response()->json($user);
     }
 
@@ -42,11 +36,18 @@ class UserController extends Controller
             'titlePre' => 'required',
             'title' => 'required',
         ]);
-
-        $user->title_pre = $data['titlePre'];
-        $user->title = $data['title'];
-        $user->save();
+        $user->update($data);
         return response()-json(['message' => 'Selected options saved successfully']);
+    }
+
+    public function randomizeSelection()
+    {
+        $titles = UserTitle::all();
+        $randomTitles = $titles->random(2);
+        $user->title_pre = $randomTitles[0]->id;
+        $user->title = $randomTitles[1]->id;
+        $user->save();
+        return response()->json(['message' => 'Selections randomized successfully']);
     }
 
     public function titlepre(){

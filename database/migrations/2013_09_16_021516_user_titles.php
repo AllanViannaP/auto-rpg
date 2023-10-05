@@ -16,7 +16,7 @@ class UserTitles extends Migration
         Schema::create('user_titles', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->tinyInteger('order');
+            $table->integer('order');
         });
         
     }
