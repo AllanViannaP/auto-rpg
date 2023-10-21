@@ -30,7 +30,7 @@ class UserController extends Controller
         return view('usersettings',["user"=>$user, "atualpre"=>$atualpre, "atualtitle"=>$atualtitle, "pretitle"=>$pretitle, "title"=>$title]);
     }
     
-    public function editinfo(){
+    public function profilesave(Request $request){
         
     }
 

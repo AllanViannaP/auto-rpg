@@ -6,38 +6,47 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <h2>Account Settings</h2> <br> <br><br>
-                    <i class="bi bi-pencil-square h5 text-secondary end-div" id="edit_profile" name="edit_profile"></i>
+                    <i class="bi bi-pencil-square h5 text-secondary end-div cursor_pointer" id="edit_profile" name="edit_profile"></i>
             </div>
             <div id="profileinfo" class="">
                 <p class="centered-div">Username: {{$user->name}}</p>
                 <p class="centered-div">Title: {{$atualpre->title}} {{$atualtitle->title}}</p>
             </div>
             <div id="profileedit" class="d-none">
-                <form method="POST" class="centered-div">
-                    <input type="text" placeholder="Username" value="{{$user->name}}" title="Username">
-                    <br>
+                <form method="POST" action="{{route('profilesave')}}" class="centered-div">
+                    @csrf
+                        <input type="text" id="username" name="username" placeholder="Username" value="{{$user->name}}" title="Username">
+                        <br>
+                    <h4> Title </h4>
+                    <div class="custom-box" id="custom-box-0">
+                        
+                        <select class="custom-select" id ="prefixtitle" name ="prefixtitle"> 
+                            @foreach($pretitle as $pref)
+                                
+                                @if($pref->id==$user->titlepre)
+                                    <option selected value="{{$pref->id}}">{{$pref->title}}</option>
+                                @else
+                                    <option value="{{$pref->id}}">{{$pref->title}}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="custom-box" id="custom-box-1">
+                        <select class="custom-select" id ="suffixtitle" name ="suffixtitle"> 
+                            @foreach($title as $titles)
+                                @if($titles->id==$user->title)
+                                    <option selected value="{{$titles->id}}">{{$titles->title}}</option>
+                                @else
+                                    <option value="{{$titles->id}}">{{$titles->title}}</option>
+                                @endif
+                            @endforeach
+                        </select>
+
+                        <i class="bi bi-dice-5 cursor_pointer" onclick="randomtitles()"></i>
+                    </div> <br><br>
+                    <button type="SUBMIT">Confirm</button>
                 </form>
-
-                <h4> Title </h4>
-                <div class="custom-box" id="custom-box-0">
-                    
-                    <select class="custom-select" id ="custom-select-0"> 
-                        @foreach($pretitle as $pref)
-                            <option>{{$pref->title}}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="custom-box" id="custom-box-1">
-                    <select class="custom-select" id ="custom-select-1"> 
-                        @foreach($title as $title)
-                            <option>{{$title->title}}</option>
-                        @endforeach
-                    </select>
-
-                    <button onclick=""> Randomize </button>
-                </div> <br><br>
-                <button onclick="confirmSelection()">Confirm</button>
-            </div> 
+            </div>
                     
                 <br> <br>
             <div class="card">
@@ -109,7 +118,11 @@ $('#edit_info').on('click',function(){
 });
 
     function randomtitles(){
-        
+        $pref=$("#prefixtitle").lenght;
+        $suff=$("#suffixtitle").lenght;
+        let check = Math.floor((Math.random() * $pref) + 1);
+        let checki = Math.floor((Math.random() * $suff) + 1);
+        $("# option[value=c]").attr('selected', 'selected'); 
     }
 </script>
 @endsection

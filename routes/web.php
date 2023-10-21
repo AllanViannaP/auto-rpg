@@ -17,10 +17,7 @@ Route::post('/login/verify', ['uses' => 'Auth\LoginController@verify_login',  'a
 Route::get('/register', ['uses' => 'RegisterController@register', 'as' => 'register']);
 Route::post('/registrate', ['uses' => 'RegisterController@registrate', 'as' => 'registrate']);
 Route::get('/usersettings', ['uses' => 'UserController@usersettings', 'as' => 'usersettings']);
-Route::get('/get-options/{order}', ['uses' => 'UserController@getOptions', 'as', 'getOptions']);
-Route::get('/get-selected-options', ['uses' => 'UserController@getSelectedOptions', 'as', 'getSelectedOptions']);
-Route::post('/save-selected-options',['uses' => 'UserController@saveSelectedOptions', 'as', 'saveSelectedOptions']);
-Route::post('/randomize-selection',['uses' =>'UserController@randomizeSelection', 'as', 'randomizeSelection']);
+Route::post('/profilesave', ['uses' =>'UserController@profilesave', 'as' =>'profilesave']);
 //-- Rooms --
 Route::get('/mygames', ['uses' => 'RoomController@mygames',  'as' => 'mygames']);
 Route::get('/{code}', ['uses' => 'RoomController@rooms',  'as' => 'room']);
