@@ -39,11 +39,13 @@
                 </div>
                 <form method="POST" action='{{ route("new_file") }}' enctype="multipart/form-data"> 
                     @csrf
-                        <div class="d-flex align-items-center ">
+                        <div class="d-flex align-items-center justify-content-center">
                             <input class="mt-3 mb-3 form-control" type="file" name="file_insert[]" id="file" onchange="check(this)" style="max-width:70%;" required/>
                         </div>
 
-                        <div id="new_files">
+                        <div id="new_files" >
+                            <div id="controller_files">
+                            </div>
                         </div>
 
                         <div class="d-flex align-items-center justify-content-center ">
@@ -65,7 +67,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-gradient-primary-to-secondary p-4">
-                    <h4 class="modal-title font-alt text-white" id="newModallLabel">Add files</h4>
+                    <h4 class="modal-title font-alt text-white" id="newModallLabel">Add new division</h4>
                     <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                         <div class="form-group row mt-4 justify-content-center">
@@ -93,13 +95,21 @@
 </section>   
 
 <script>
+
+    function cleaner(div){
+        $('input[type=file]').val('');
+        $('#new_files').append(
+            '<input hidden name="div_inp" value='+div+' required/>'
+        );
+    }
+
     function remove_file(div){
         $(div.parentElement).remove();
     }
 
     function new_file(){
         $('#new_files').append(
-            '<div class="d-flex align-items-center" id="new_file_div">'+
+            '<div class="d-flex align-items-center justify-content-center" id="new_file_div">'+
                 '<input class="mt-3 mb-3 form-control" type="file" onchange="check(this)" name="file_insert[]" id="file" style="max-width:70%;" required/>'+
                 ' <i class="bi bi-trash3 p-4" title="Remove" onclick="remove_file(this)"></i>'+
             '</div>'
@@ -138,6 +148,7 @@
             data: {file:fileName},
             success: function(Response){
                 console.log(Response);
+                //Sweet alert for duplicated
             }});
         }
 
@@ -150,7 +161,7 @@
                 '<div id="mother_'+div+'"'+
                     '<div class="col-xl-1 col-md-6 mb-4">'+
                         '<div class="card card border-left-primary shadow h-100 py-2" style="justify-content:center;  text-align: center;">'+
-                                '<a class="bi bi-plus-square size_10" data-bs-toggle="modal" data-bs-target="#fileModal"></a>'+
+                                '<a class="bi bi-plus-square size_10" data-bs-toggle="modal" data-bs-target="#fileModal" onclick="cleaner('+div+')"></a>'+
                                 '<hr>'+
                                 '<p>New File</p>'+
                         '</div>'+

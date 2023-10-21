@@ -38,7 +38,7 @@ class UserController extends Controller
             $file_name  = $file->getClientOriginalName();
             $file_name = substr($file_name,0,-4);
 
-            dd($request->divison);
+            dd($request->all());
 
             DB::table('library')
             ->insert([
