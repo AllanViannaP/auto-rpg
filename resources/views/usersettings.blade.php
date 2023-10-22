@@ -118,11 +118,13 @@ $('#edit_info').on('click',function(){
 });
 
     function randomtitles(){
-        $pref=$("#prefixtitle").lenght;
-        $suff=$("#suffixtitle").lenght;
-        let check = Math.floor((Math.random() * $pref) + 1);
-        let checki = Math.floor((Math.random() * $suff) + 1);
-        $("# option[value=c]").attr('selected', 'selected'); 
+        pref =$("#prefixtitle")[0].childElementCount;
+        suff =$("#suffixtitle")[0].childElementCount;
+        
+        check = Math.floor((Math.random() * (pref - 0)));
+        checki = Math.floor((Math.random() * (suff - 0)));
+        $("#prefixtitle option:eq("+check+")").prop('selected', true);
+        $("#suffixtitle option:eq("+checki+")").prop('selected', true);
     }
 </script>
 @endsection
