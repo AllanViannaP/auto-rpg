@@ -1,11 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 
-class titles extends Seeder
+class Titles extends Seeder
 {
     /**
      * Run the database seeds.
@@ -25,9 +22,5 @@ class titles extends Seeder
                 'order' => $sv[1],
             ]);
         }
-
-
-
-
     }
 }
