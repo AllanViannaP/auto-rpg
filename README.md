@@ -54,5 +54,5 @@ php artisan db:seed --class=Titles
 
 To finish, start the server using the command:
 ```
-php artisan db:seed --class=Titles
+php artisan serve
 ```
