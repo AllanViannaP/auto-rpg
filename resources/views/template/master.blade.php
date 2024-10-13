@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
+        <meta name="csrf-token" content="{{csrf_token()}}" />
         @yield('title')
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -96,6 +97,11 @@
                                         <i class="bi bi-dice-5"></i> &nbsp; My games</a>
                                 </div>
                                 
+                                <div class="form-floating mb-3">
+                                    <a class="nav-link rounded-pill px-3 mb-2 mb-lg-0" href="{{route('library')}}">
+                                        <i class="bi bi-book"></i> &nbsp; Library</a>
+                                </div>
+
                                 <div class="form-floating mb-3">
                                     <a class="nav-link rounded-pill px-3 mb-2 mb-lg-0" href="{{route('usersettings')}}">
                                         <i class="bi bi-gear-fill"></i> &nbsp; Settings</a>
