@@ -1,5 +1,5 @@
 # Auto RPG 
-> Status: On development ⚠️
+> Status: In development 🕒
 
 
 ## **About**:
