@@ -44,7 +44,9 @@ class RegisterController extends Controller
             ->insert([
                 'name' => $request->name,
                 'email' => $request->email,
-                'password' => Hash::make($request->password)
+                'password' => Hash::make($request->password),
+                'titlepre' => 6,
+                'title' => 92
             ]);
             return view('auth.verify');
         }

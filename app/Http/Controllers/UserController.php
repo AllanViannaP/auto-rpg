@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use App\Models\UserTitle;
+use App\Models\Users;
 
 class UserController extends Controller
 {
@@ -73,9 +73,22 @@ class UserController extends Controller
         $user=DB::table('users')
         ->where('id','=',Auth::id())
         ->first();
-        return view('usersettings',["user"=>$user]);
+        $pretitle=DB::table('user_titles')
+        ->where('order','=', 0)
+        ->get();
+        $title=DB::table('user_titles')
+        ->where('order','=', 1)
+        ->get();
+        $atualpre=DB::table('user_titles')
+        ->where('user_titles.id','=', $user->titlepre)
+        ->first();
+        $atualtitle=DB::table('user_titles')
+        ->where('user_titles.id','=', $user->title)
+        ->first();
+        return view('usersettings',["user"=>$user, "atualpre"=>$atualpre, "atualtitle"=>$atualtitle, "pretitle"=>$pretitle, "title"=>$title]);
     }
     
+
     public function editinfo(){
         return 1;
     }
@@ -99,6 +112,9 @@ class UserController extends Controller
         }
 
         return view('library',['files' => $files, 'division' => $division]);
+    }
+    public function profilesave(Request $request){
+        
     }
 
 }

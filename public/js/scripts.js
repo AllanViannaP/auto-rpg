@@ -31,4 +31,13 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
+    // ----------------- General Purpose Scripts -----------------------
+    //Hides a div and shows another div
+    function shift(hide, show) {
+        hideElement = document.getElementById(hide);
+        showElement = document.getElementById(show);
+        hideElement.classList.add('d-none');
+        showElement.classList.remove('d-none');
+        }
+
 });

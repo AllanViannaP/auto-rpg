@@ -25,21 +25,6 @@
         crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
         <script src="js/jquery-3.2.1.min.js"></script>
-
-        <style>
-            .cursor_pointer {
-                cursor: pointer;
-            }
-
-            .size_10 {
-                font-size: 48px;
-            }
-
-            .size_5{
-                font-size: 24px;
-            }
-
-        </style>
     </head>
 
     <body id="page-top">
@@ -96,7 +81,7 @@
                                     <a class="nav-link rounded-pill px-3 mb-2 mb-lg-0" href="{{route('mygames')}}">
                                         <i class="bi bi-dice-5"></i> &nbsp; My games</a>
                                 </div>
-                                
+
                                 <div class="form-floating mb-3">
                                     <a class="nav-link rounded-pill px-3 mb-2 mb-lg-0" href="{{route('library')}}">
                                         <i class="bi bi-book"></i> &nbsp; Library</a>

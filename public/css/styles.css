@@ -11160,3 +11160,36 @@ footer a:hover, footer a:active, footer a:focus {
     max-width: 17rem;
   }
 }
+
+.cursor_pointer {
+    cursor: pointer;
+}
+
+.size_10 {
+    font-size: 48px;
+}
+
+.size_5{
+    font-size: 24px;
+}
+
+.centered-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.end-div {
+  display: flex;
+  justify-content: flex-end; 
+}
+
+.custom-box {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+custom-select{
+  width: 150px;
+  height: 150px;
+}
